@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+<h1 class="text-center" style="font-family: 'Courier New', Courier, monospace; font-size:30px; font-weight:bolder; margin-top:30px;" class="display-4">{{subjudul}}</h1>
+{% endblock header %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static '/statics/css/styles.css' %}">
+<div class="container">
+    <div class="row">
+        <div class="col-6" style="margin-top: 30px;">
+        <img src="{{ uploaded_file_url }}" alt="image" class="img-fluid" width="300px" height="300px">
+        </div>
+        <div class="col-6">
+        <table width="100%" border="3px" style="text-align: left; margin-top: 70px; margin-left: 30px; font-family: 'Courier New', Courier, monospace; font-size:20px; font-weight:bolder;">
+        <tr>
+            <td> {{ predictedLabel|safe }} </td>
+        </tr>
+         <!-- <tr>
+            <td>Accuration : {{ predi }}</td>
+        </tr> -->
+        </table>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row" style="margin-top:-60px; border-radius: 20%; ">
+    <img style="margin-left: -30px;" src="{{ histogram_img_r }}" alt="image" class="img-fluid" width="200px" height="100px">
+    <img style="margin-left: 10px;" src="{{ histogram_img_g }}" alt="image" class="img-fluid" width="200px" height="100px">
+    <img style="margin-left: 10px;" src="{{ histogram_img_b }}" alt="image" class="img-fluid" width="200px" height="100px">
+</div>
+{% endblock content %}

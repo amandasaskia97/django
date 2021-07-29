@@ -1,0 +1,36 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{judul}}</title>
+    {% include 'snippets/styles.html' %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <body id="bg" style="background-image:url('{% static 'image/background juga.jpg'%}');
+		background-repeat: no-repeat; background-size: 1800px 900px">
+        {% include 'snippets/navbar.html' %}
+
+
+        <div class=" ">
+            <div class="container text-white text-right">
+
+              {% block header %}
+
+              {% endblock header %}
+
+            </div>
+            <div class="container text-center">
+
+                {% block content %}
+
+                {% endblock content %}
+
+            </div>
+        </div>
+
+        {% include 'snippets\js.html' %}
+    </body>
+</head>
+</html>

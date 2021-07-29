@@ -1,0 +1,6 @@
+.jumbotron{
+    background-image: url("static/image/ini background.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 0px;
+}

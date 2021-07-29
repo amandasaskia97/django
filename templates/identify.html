@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<title>Classification</title>
+<h1 class="text-center" style="font-family: 'Courier New'; font-size: 50px; font-weight:bolder; margin-top: 100px;" class="display-4">Let's Classify</h1>
+{% endblock header %}
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static '/css/styles.css' %}">
+<br>
+<head ><title >{{judul}}</title></head>
+  <form action="/identify" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input style="font-size: 25px;" type="file" name="myfiles" id="myfile">
+    <button style="font-size: 25px;" type="submit" class="btn btn-info">Upload</button>
+  </form>
+  <br><br>
+
+  <br>
+  <br>
+
+{% if uploaded_file_url != '' %}
+ <img src="{% static 'media' %}{{uploaded_file_url }}" alt="image" class="img-fluid" width="250px" height="250px">
+    <br>
+    <br>
+    <head><title>{{judul}}</title></head>
+    <form action="/hasil" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+	    <input type="hidden" name="myfiles" value="{{ uploaded_file_url }}" id="myfiles">
+<!--      <input type="file" name="myfiles" value="{{ uploaded_file_url }}"  id="myfiles" style="display:none">-->
+      <button type="submit" class="btn btn-success" style="font-size: 25px;">Process</button>
+    </form>
+
+{% endif %}
+
+  </div>
+
+{% endblock content %}

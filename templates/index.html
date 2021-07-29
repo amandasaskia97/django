@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<h1 class="display-4" style=" margin-top: 150px; font-family:
+ 'Courier New';font-weight: bolder; font-size: 35px;">{{subjudul}}</h1>
+<h1 class="display-4" style=" font-family: 'Courier New';font-weight: bolder; font-size: 35px;" >{{judul}}</h1>
+<!-- <a href="classification/"><button type="button" class="btn btn-success" style="margin-right: 120px;">Get Started!</button></a> -->
+{% endblock header %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12" style="box-shadow: 0 3px rgba(0,0,0,0.5); border-radius: 12px; background-color: white; margin-top: 130px; padding: 25px;">
+            <div class="row">
+                <head><title>{{judul}}</title></head>
+                <div class="col-lg">
+                  <a href="/about" style="color: black;">
+                  <img src= "{% static '/image/kacamata.jpg' %}" alt="About" style="width: 70px; height: 70px;" class="float-left" >
+                  <h4 style="font-size: 20px; font-family: 'Courier New', Courier, monospace; font-weight: bolder;">About</h4>
+                  <p style="font-size: 19px;">Huruf Braille</p>
+                  </a>
+                </div>
+                <div class="col-lg" >
+                  <head><title>{{judul}}</title></head>
+                  <a href="/identify" style="color: black;">
+                  <img src="{% static '/image/Logo.jpg' %} " alt="App" style="width: 70px; height: 70px;" class="float-left">
+                  <h4 style="font-size: 20px; font-family: 'Courier New', Courier, monospace;font-weight: bolder;">App</h4>
+                  <p style="font-size: 19px;">Classification</p>
+                  </a>
+                </div>
+                <div class="col-lg">
+                  <head><title>{{title}}</title></head>
+                  <a href="/info" style="color: black;">
+                  <img src="{% static '/image/kacamata.jpg' %} " alt="moreinfo" style="width: 70px; height: 70px;" class="float-left">
+                  <h4 style="font-size: 20px; font-family: 'Courier New', Courier, monospace; font-weight: bolder;">More Info</h4>
+                  <p style="font-size: 19px;">Info Huruf Braille</p>
+                  </a>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block header %}
+<h1 class="text-center" style="font-family: 'Courier New', Courier, monospace; font-size:30px; font-weight:bolder; margin-top:30px;" class="display-4">{{subjudul}}</h1>
+{% endblock header %}
+    
+
+{% block content %}
+<div id="hero" style="height:250vh">
+  <div class="hero-container" style="top:-150px;background: #00000096;">
+    <hr>
+    <h3><strong>PREPROCESSING</strong></h3>
+    <div class="row">
+        <div class="col-1" style="width: 10.333333%;"></div>
+      <div class="col-3">
+          <p><strong>Original Image</strong></p>
+        <img src="{% static 'media' %}{{uploaded_file_url }" class="img">
+      </div>
+      <div class="col-3">
+          <p><strong>Binary Image (Thresholding)</strong></p>
+        <img src="{{uploaded_file_url}}" class="img">
+      </div>
+    </div>
+    <hr><hr>
+
+    <h3><strong>Signature Recognition Result</strong></h3>
+    <div class="row">
+    <div class="col-1" style="width: 10.333333%;"></div>
+      <div class="col-3">
+          <p><strong>Binary Image</strong></p>
+          <img src="{{uploaded_file_url}}" class="img">
+
+      </div>
+	    <table width="100%" border="3px" style="text-align: left; margin-top: 70px; margin-left: 30px; font-family: 'Courier New', Courier, monospace; font-size:20px; font-weight:bolder;">
+        <tr>
+            <td> {{ predictedLabel|safe }} </td>
+        </tr>
+	    </table>
+    </div>
+      <hr>
+  </div>
+</div>
+{% endblock content %}
