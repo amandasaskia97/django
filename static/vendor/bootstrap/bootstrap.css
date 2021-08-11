@@ -61,8 +61,8 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  text-align: left;
+  color: #d8c338;
+  text-align: right;
   background-color: #fff;
 }
 
@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-  font-size: 2.5rem;
+  font-size: 3.0rem;
 }
 
 h2, .h2 {
@@ -9980,8 +9980,8 @@ button.bg-dark:focus {
   text-align: left !important;
 }
 
-.text-right {
-  text-align: right !important;
+.text-left {
+  text-align: left !important;
 }
 
 .text-center {
@@ -10073,7 +10073,7 @@ button.bg-dark:focus {
 }
 
 .text-white {
-  color: #fff !important;
+  color: #d8c338 !important;
 }
 
 .text-primary {

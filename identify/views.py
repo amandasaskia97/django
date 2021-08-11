@@ -18,7 +18,7 @@ def index(request):
         myfiles = request.FILES['myfiles']
         fs = FileSystemStorage()
         filename = fs.save(myfiles.name, myfiles)
-        uploaded_file_url = fs.url(filename)
+        uploaded_file_url = (fs.url(filename))[1:]
     else:
         uploaded_file_url = '';
     return render(request,'identify.html',
@@ -53,18 +53,18 @@ def prosesImg(request):
     with model_graph.as_default():
         tf_session=tf.compat.v1.Session()
         with tf_session.as_default():
-            models=load_model('./model/BrailleNet.h5')
+            models=load_model('./model/trainbaru.model')
 
     testimage='.'+filelink
 
     img = image.load_img(testimage, target_size=(img_height, img_width))
     x = image.img_to_array(img)
-    x = x / 255
     x = x.reshape(1, img_height, img_width, 3)
-
+    predictedLabel = ''
     with model_graph.as_default():
         with tf_session.as_default():
             predi = models.predict(x)
+
     if np.argmax(predi) == 0:
         predictedLabel = """Classification : huruf A <br/>"""
 
@@ -84,7 +84,7 @@ def prosesImg(request):
         predictedLabel = """Classification : huruf F <br/>"""
 
     elif np.argmax(predi) == 6:
-        predictedLabel = """Classification : huruf G <br/>"""
+         predictedLabel = """Classification : huruf G <br/>"""
 
     elif np.argmax(predi) == 7:
         predictedLabel = """Classification : huruf H <br/>"""
@@ -117,7 +117,8 @@ def prosesImg(request):
         predictedLabel = """Classification : huruf Q <br/>"""
 
     elif np.argmax(predi) == 17:
-        predictedLabel = """Classification : huruf R <br/>"""
+         predictedLabel = """Classification : huruf R <br/>"""
+        #predictedLabel = """Classification : huruf C <br/>"""
 
     elif np.argmax(predi) == 18:
         predictedLabel = """Classification : huruf S <br/>"""

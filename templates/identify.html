@@ -3,7 +3,7 @@
 
 {% block header %}
 <title>Classification</title>
-<h1 class="text-center" style="font-family: 'Courier New'; font-size: 50px; font-weight:bolder; margin-top: 100px;" class="display-4">Let's Classify</h1>
+<h1 class="text-center" style="font-family: 'Courier New'; font-size: 50px; font-weight:bolder; margin-top: 100px;" class="display-4">Try to Classify</h1>
 {% endblock header %}
 
 
@@ -23,15 +23,18 @@
   <br>
 
 {% if uploaded_file_url != '' %}
- <img src="{% static 'media' %}{{uploaded_file_url }}" alt="image" class="img-fluid" width="250px" height="250px">
+<!-- <img src="{% static 'media' %}{{uploaded_file_url }}" alt="image" class="img-fluid" width="250px" height="250px">-->
+<img src="{% static '' %}{{ uploaded_file_url }}" alt="image" class="img-fluid" width="250px" height="250px">
     <br>
     <br>
-    <head><title>{{judul}}</title></head>
+<!--    <head><title>{{judul}}</title></head>-->
+
     <form action="/hasil" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-	    <input type="hidden" name="myfiles" value="{{ uploaded_file_url }}" id="myfiles">
+<!--	    <input type="hidden" name="myfiles" value="{{ uploaded_file_url }}" id="myfiles">-->
+	    <input type="hidden" name="myfiles" value="{% static '' %}{{ uploaded_file_url }}" id="myfiles">
 <!--      <input type="file" name="myfiles" value="{{ uploaded_file_url }}"  id="myfiles" style="display:none">-->
-      <button type="submit" class="btn btn-success" style="font-size: 25px;">Process</button>
+      <button type="submit" class="btn btn-success" style="font-size: 25px;">Classify</button>
     </form>
 
 {% endif %}
